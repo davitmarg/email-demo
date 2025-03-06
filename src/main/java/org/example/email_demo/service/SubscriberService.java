@@ -67,4 +67,5 @@ public class SubscriberService {
         subscriberRepository.removeSubscriber(email);
 >>>>>>> bc8e9ef95f781037f1c64405990f4d5185abd86a
     }
+
 }
