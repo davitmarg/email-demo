@@ -1,13 +1,23 @@
 package org.example.email_demo.model;
 
+<<<<<<< HEAD
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+=======
+>>>>>>> bc8e9ef95f781037f1c64405990f4d5185abd86a
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
 
+<<<<<<< HEAD
+@Entity
+=======
+>>>>>>> bc8e9ef95f781037f1c64405990f4d5185abd86a
 public class Subscriber {
     @Email
     @NotEmpty
+    @Id
     private String email;
     private String name;
     private String ipAddress;
