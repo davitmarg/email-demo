@@ -10,7 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
+=======
+>>>>>>> bc8e9ef95f781037f1c64405990f4d5185abd86a
 
 @RestController
 public class SubscriberApiController {
@@ -30,10 +33,15 @@ public class SubscriberApiController {
     @PostMapping("/api/subscribe")
     public ResponseEntity<Subscriber> addSubscriber(@RequestBody @Valid SubscriberDTO subscriberDTO, HttpServletRequest request) {
         String ipAddress = request.getRemoteAddr();
+<<<<<<< HEAD
         Optional<Subscriber> subscriber = subscriberService.addSubscriber(subscriberDTO.getEmail(), subscriberDTO.getName(), ipAddress);
 
         return subscriber.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
 
+=======
+        Subscriber subscriber = subscriberService.addSubscriber(subscriberDTO.getEmail(), subscriberDTO.getName(), ipAddress);
+        return ResponseEntity.ok(subscriber);
+>>>>>>> bc8e9ef95f781037f1c64405990f4d5185abd86a
     }
 
 
