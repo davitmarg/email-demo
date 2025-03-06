@@ -1,27 +1,26 @@
 package org.example.email_demo.model;
 
-// Create a model class to represent subscriber information
-//Implement an in-memory repository to store submissions
-//Store at minimum:
-//Email address (String)
-//Creation timestamp (LocalDateTime)
-//IP address (String)
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
+import java.time.LocalDateTime;
+
+@Entity
 public class Subscriber {
     @Email
     @NotEmpty
+    @Id
     private String email;
     private String name;
     private String ipAddress;
-    private String creationTimestamp;
+    private LocalDateTime creationTimestamp;
 
     public Subscriber() {
     }
 
-    public Subscriber(String email, String name, String ipAddress, String creationTimestamp) {
+    public Subscriber(String email, String name, String ipAddress, LocalDateTime creationTimestamp) {
         this.email = email;
         this.name = name;
         this.ipAddress = ipAddress;
@@ -52,11 +51,11 @@ public class Subscriber {
         this.ipAddress = ipAddress;
     }
 
-    public String getCreationTimestamp() {
+    public LocalDateTime getCreationTimestamp() {
         return creationTimestamp;
     }
 
-    public void setCreationTimestamp(String creationTimestamp) {
+    public void setCreationTimestamp(LocalDateTime creationTimestamp) {
         this.creationTimestamp = creationTimestamp;
     }
 

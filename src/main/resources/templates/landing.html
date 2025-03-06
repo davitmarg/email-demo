@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Email Subscription</title>
+    <!-- Link to the CSS file stored in static/css -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Subscribe to Our Newsletter</h1>
+    <p>Stay updated with our latest news and offers!</p>
+
+    <!-- Success Message -->
+    <div th:if="${success}" class="success" th:text="${success}"></div>
+
+    <!-- Subscription Form -->
+    <form th:action="@{/subscribe}" th:object="${subscriber}" method="post">
+
+        <!-- Email Field -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required />
+        <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <br>
+
+        <!-- Name Field -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required />
+        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <hr>
+
+    <!-- Subscriber List -->
+    <h2>Subscribers:</h2>
+    <ul th:if="${#lists.size(subscribers) > 0}">
+        <li th:each="sub : ${subscribers}">
+            <strong th:text="${sub.name}"></strong> -
+            <span th:text="${sub.email}"></span>
+            (IP: <span th:text="${sub.ipAddress}"></span>,
+            Date: <span th:text="${sub.creationTimestamp}"></span>)
+        </li>
+    </ul>
+    <p th:if="${#lists.isEmpty(subscribers)}">No subscribers yet.</p>
+</div>
+</body>
+</html>
