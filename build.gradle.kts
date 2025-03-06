@@ -25,6 +25,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
+    implementation("io.github.cdimascio:java-dotenv:5.2.2")
+
     implementation("com.mysql:mysql-connector-j:9.2.0")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.hibernate.orm:hibernate-core:6.6.9.Final")
