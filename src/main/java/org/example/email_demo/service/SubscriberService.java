@@ -41,4 +41,5 @@ public class SubscriberService {
     public void removeSubscriber(String email) {
         subscriberRepository.deleteById(email);
     }
+
 }

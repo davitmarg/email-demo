@@ -33,7 +33,6 @@ public class SubscriberApiController {
         Optional<Subscriber> subscriber = subscriberService.addSubscriber(subscriberDTO.getEmail(), subscriberDTO.getName(), ipAddress);
 
         return subscriber.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().build());
-
     }
 
 
