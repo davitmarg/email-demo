@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 public class Subscriber {
@@ -68,4 +69,15 @@ public class Subscriber {
                 ", creationTimestamp='" + creationTimestamp + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Subscriber that = (Subscriber) o;
+        return Objects.equals(email, that.email) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(ipAddress, that.ipAddress);
+    }
+
 }
