@@ -26,8 +26,7 @@ public class SubscriberService {
 
         LocalDateTime creationTimestamp = LocalDateTime.now();
         Subscriber subscriber = new Subscriber(email, name, ipAddress, creationTimestamp);
-        subscriberRepository.save(subscriber);
-        return Optional.of(subscriber);
+        return Optional.of(subscriberRepository.save(subscriber));
     }
 
     public List<Subscriber> getAllSubscribers() {

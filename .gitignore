@@ -6,6 +6,10 @@ build/
 !**/src/test/**/build/
 
 .env
+<<<<<<< HEAD
+=======
+src/main/resources/application.properties
+>>>>>>> 9c29d1ee7536f4941f1d20eb56e39db003620113
 
 ### STS ###
 .apt_generated

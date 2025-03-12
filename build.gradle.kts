@@ -30,7 +30,6 @@ dependencies {
     implementation("com.mysql:mysql-connector-j:9.2.0")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.hibernate.orm:hibernate-core:6.6.9.Final")
-
 }
 
 tasks.withType<Test> {
