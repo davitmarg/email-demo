@@ -47,8 +47,6 @@ public class SubscriberController {
         subscriberService.addSubscriber(subscriberDTO.getEmail(), subscriberDTO.getName(), ipAddress);
         redirectAttributes.addAttribute("success", "Subscription successful!");
 
-        System.out.println(subscriberDTO + " from " + ipAddress + " subscribed!");
-
         return "redirect:/";
     }
 

@@ -22,7 +22,7 @@ public class SubscriberApiController {
         this.subscriberService = subscriberService;
     }
 
-    @GetMapping("/api/subscribers")
+    @GetMapping("/api/subscriber")
     public ResponseEntity<List<Subscriber>> getSubscribers() {
         return ResponseEntity.ok(subscriberService.getAllSubscribers());
     }
