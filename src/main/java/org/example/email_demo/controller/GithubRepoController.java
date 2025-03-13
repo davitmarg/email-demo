@@ -3,11 +3,13 @@ package org.example.email_demo.controller;
 import jakarta.validation.Valid;
 import org.example.email_demo.dto.GithubRepoDTO;
 import org.example.email_demo.model.GithubRepo;
+import org.example.email_demo.model.RepoActivity;
 import org.example.email_demo.service.GithubRepoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,5 +72,14 @@ public class GithubRepoController {
         }
     }
 
+    @GetMapping("/repo/{username}/{repositoryName}/activity")
+    public ResponseEntity<List<RepoActivity>> getRepoActivity(@PathVariable String username, @PathVariable String repositoryName) {
+        return ResponseEntity.ok(githubRepoService.getRecentActivities(username, repositoryName));
 
+    }
+
+    @GetMapping("/repo/{id}/activity")
+    public ResponseEntity<List<RepoActivity>> getRepoActivity(@PathVariable Long id) {
+        return ResponseEntity.ok(githubRepoService.getRecentActivities(id));
+    }
 }
